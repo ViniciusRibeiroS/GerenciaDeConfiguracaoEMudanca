@@ -1,11 +1,14 @@
+package classes;
 public class Cliente {
 	
 	private String nomeCliente;
 	private int saldoCliente;
+	private int numeroConta;
 	
-	public Cliente(String nomecliente, int saldoCliente) {
+	public Cliente(String nomecliente, int saldoCliente, int numeroConta) {
 		this.nomeCliente = nomecliente;
 		this.saldoCliente = saldoCliente;
+		this.numeroConta = numeroConta;
 	}
 	
 	
@@ -24,6 +27,16 @@ public class Cliente {
 	
 	public String getNomeCliente() {
 		return nomeCliente;
+	}
+
+
+	public int getNumeroConta() {
+		return numeroConta;
+	}
+
+
+	public void setNumeroConta(int numeroConta) {
+		this.numeroConta = numeroConta;
 	}
 
 }

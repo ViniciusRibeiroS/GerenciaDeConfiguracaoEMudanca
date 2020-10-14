@@ -39,8 +39,8 @@ public class Cliente {
 		if(numeroConta != cliente.getNumeroConta()) {
 		throw new OperacaoCanceladaException("Conta não Existe");
 		} else {
-			cliente.debito(valorTransferido);
-			this.credito(valorTransferido);
+			cliente.credito(valorTransferido);
+			this.debito(valorTransferido);
  		}
 	}
 

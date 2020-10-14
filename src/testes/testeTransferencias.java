@@ -5,7 +5,6 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import classes.Cliente;
-import classes.TransferenciaService;
 import exception.OperacaoCanceladaException;
 
 public class testeTransferencias {
@@ -15,10 +14,9 @@ public class testeTransferencias {
 	public void testTransferencia() {
 		Cliente c = new Cliente("Vinicius", 800, 1);
 		Cliente c2 = new Cliente("Victor", 800, 2);
-		
-		TransferenciaService t = new TransferenciaService();
+
 		try {
-			t.transferencia(c, c2, 24, 2);
+			c.transferencia(c2, 24, 2);
 		} catch (OperacaoCanceladaException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -33,9 +31,8 @@ public class testeTransferencias {
 		Cliente c = new Cliente("Vinicius", 800, 1);
 		Cliente c2 = new Cliente("Victor", 800, 2);
 		
-		TransferenciaService t = new TransferenciaService();
-		try {
-			t.transferencia(c, c2, 24, 3);
+ 		try {
+			c.transferencia(c2, 24, 3);
 		} catch (OperacaoCanceladaException e) {
 			throw e;
 		}
@@ -46,9 +43,8 @@ public class testeTransferencias {
 	public void testCredito() {
 		Cliente c = new Cliente("Vinicius", 800, 1);
  		
-		TransferenciaService t = new TransferenciaService();
-		try {
-			t.credito(c, 20);
+ 		try {
+			c.credito(20);
 		} catch (OperacaoCanceladaException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -62,9 +58,8 @@ public class testeTransferencias {
 	public void testCreditoException() throws OperacaoCanceladaException {
 	Cliente c = new Cliente("Vinicius", 800, 1);
 
-	TransferenciaService t = new TransferenciaService();
-	try {
-		t.credito(c, -5);
+ 	try {
+		c.credito(-5);
 		} catch (OperacaoCanceladaException e) {
 			throw e;
 		}
@@ -75,9 +70,8 @@ public class testeTransferencias {
 	public void testDebito() {
 	Cliente c = new Cliente("Vinicius", 800, 1);
 	 		
-	TransferenciaService t = new TransferenciaService();
-	try {
-		t.debito(c, 20);
+ 	try {
+		c.debito(20);
 	} catch (OperacaoCanceladaException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
@@ -90,9 +84,8 @@ public class testeTransferencias {
 	public void testDebitoException() throws OperacaoCanceladaException {
 	Cliente c = new Cliente("Vinicius", 800, 1);
 
-	TransferenciaService t = new TransferenciaService();
-	try {
-		t.debito(c, 830);
+ 	try {
+		c.debito(830);
 		} catch (OperacaoCanceladaException e) {
 			throw e;
 		}

@@ -1,4 +1,7 @@
 package classes;
+
+import exception.OperacaoCanceladaException;
+
 public class Cliente {
 	
 	private String nomeCliente;
@@ -17,7 +20,7 @@ public class Cliente {
 		this.saldoCliente = 845;
 	}
 	
-	public void setSaldo(int saldo) {
+	private void setSaldo(int saldo) {
 		this.saldoCliente = saldo;
 	}
 	
@@ -25,18 +28,39 @@ public class Cliente {
 		return saldoCliente;
 	}
 	
-	public String getNomeCliente() {
-		return nomeCliente;
-	}
-
-
-	public int getNumeroConta() {
+	private int getNumeroConta() {
 		return numeroConta;
 	}
 
 
-	public void setNumeroConta(int numeroConta) {
-		this.numeroConta = numeroConta;
+	//Transferencia
+	public void transferencia(Cliente cliente, int valorTransferido, int numeroConta) throws OperacaoCanceladaException {
+			
+		if(numeroConta != cliente.getNumeroConta()) {
+		throw new OperacaoCanceladaException("Conta não Existe");
+		} else {
+			cliente.debito(valorTransferido);
+			this.credito(valorTransferido);
+ 		}
 	}
 
+	//Debito
+	public void debito(int valorDebitado) throws OperacaoCanceladaException {	
+		if((this.getSaldo()- valorDebitado) < 0 || valorDebitado < 0) {
+			throw new OperacaoCanceladaException("Debito maior que valor em Conta");
+		}
+		else {
+			this.setSaldo(this.getSaldo()- valorDebitado);
+		}
+	}
+		
+	//Credito
+	public void credito(int valorCreditado) throws OperacaoCanceladaException {
+		if(valorCreditado < 0) {
+			throw new OperacaoCanceladaException("Valor Creditado não pode ser negativo");
+		}
+		else {
+			this.setSaldo(this.getSaldo() + valorCreditado);
+		}
+	}
 }

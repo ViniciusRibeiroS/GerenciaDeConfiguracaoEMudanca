@@ -5,14 +5,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
-</head>
+</head> 
 <body>
-	<div class="login-page">
-		<div class="form">
-			<form action="LoginServlet" method="post" class="login-form">
-				<button type="submit" value="Logar">Logar</button>
-			</form>
-		</div>
-	</div>
+ 	<h3>Seja bem vindo ao sistema em jsp</h3>
 </body>
 </html>

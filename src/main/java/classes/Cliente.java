@@ -39,7 +39,7 @@ public class Cliente {
 		if(numeroConta != cliente.getNumeroConta()) {
 		throw new OperacaoCanceladaException("Conta não Existe");
 		} else {
-			cliente.credito(valorTransferido);
+			cliente.deposito(valorTransferido);
 			this.debito(valorTransferido);
  		}
 	}
@@ -55,7 +55,7 @@ public class Cliente {
 	}
 		
 	//Credito
-	public void credito(int valorCreditado) throws OperacaoCanceladaException {
+	public void deposito(int valorCreditado) throws OperacaoCanceladaException {
 		if(valorCreditado < 0) {
 			throw new OperacaoCanceladaException("Valor Creditado não pode ser negativo");
 		}

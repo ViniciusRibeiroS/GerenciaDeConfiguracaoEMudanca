@@ -62,12 +62,22 @@ public class Cliente {
 		}
 		else {
 			this.setSaldo(this.getSaldo() + valorCreditado);
-			this.bonificacao += valorCreditado/100;
+			this.setBonificacao(this.getBonificacao() + valorCreditado/100);
 		}
 	}
 
 
 	public String getNomeCliente() {
 		return this.nomeCliente;
+	}
+
+
+	public int getBonificacao() {
+		return bonificacao;
+	}
+
+
+	public void setBonificacao(int bonificacao) {
+		this.bonificacao = bonificacao;
 	}
 }

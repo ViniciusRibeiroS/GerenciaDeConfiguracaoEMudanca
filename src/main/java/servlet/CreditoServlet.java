@@ -32,7 +32,7 @@ public class CreditoServlet extends HttpServlet {
 	
 		int valorCreditado =  Integer.valueOf(request.getParameter("valor"));
 	
-		c.credito(valorCreditado);
+		c.deposito(valorCreditado);
 		
 		request.setAttribute("saldo", c.getSaldo());
 		request.setAttribute("nome", c.getNomeCliente());

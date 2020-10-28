@@ -63,7 +63,6 @@ public class Cliente {
 		else {
 			this.setSaldo(this.getSaldo() + valorCreditado);
 			this.bonificacao += valorCreditado/100;
-			System.out.println(bonificacao);
 		}
 	}
 

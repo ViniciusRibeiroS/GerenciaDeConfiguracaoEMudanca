@@ -7,6 +7,7 @@ public class Cliente {
 	private String nomeCliente;
 	private int saldoCliente;
 	private int numeroConta;
+	private int bonificacao;
 	
 	public Cliente(String nomecliente, int saldoCliente, int numeroConta) {
 		this.nomeCliente = nomecliente;
@@ -61,6 +62,8 @@ public class Cliente {
 		}
 		else {
 			this.setSaldo(this.getSaldo() + valorCreditado);
+			this.bonificacao += valorCreditado/100;
+			System.out.println(bonificacao);
 		}
 	}
 

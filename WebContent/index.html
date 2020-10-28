@@ -1,5 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,12 +5,23 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div class="login-page">
-		<div class="form">
-			<form action="LoginServlet" method="post" class="login-form">
-				<button type="submit" value="Logar">Logar</button>
-			</form>
-		</div>
-	</div>
+		<form action="CreditoServlet" method="post">
+			<input type = "text" name = "valor">
+			<button type="submit">Credito</button>
+		</form>
+		
+		<form action="DebitoServlet" method="post">
+			<input type = "text" name = "valor">
+			<button type="submit">Debito</button>
+		</form>
+		
+		<form action="TransferenciaServlet" method="post">
+			<input type = "text" name = "valor">
+			<button type="submit">Transferencia</button>
+		</form>
+		
+		<form action="SaldoServlet" method="post">
+			<button type="submit">Saldo</button>
+		</form>
 </body>
 </html>

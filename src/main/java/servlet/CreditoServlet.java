@@ -9,13 +9,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import classes.Cliente;
 
 
-@WebServlet("/LoginServlet")
-public class LoginServlet extends HttpServlet {
+
+@WebServlet("/CreditoServlet")
+public class CreditoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	public LoginServlet() {
+	public CreditoServlet() {
 		super();
 	}
 
@@ -24,16 +26,25 @@ public class LoginServlet extends HttpServlet {
 		doPost(request, response);
 	}
 
-	protected void doPost(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	try {
+		Cliente c = new Cliente("Gibeon", 600, 123);
+	
+		int valorCreditado =  Integer.valueOf(request.getParameter("valor"));
+	
+		c.credito(valorCreditado);
+		
+		request.setAttribute("saldo", c.getSaldo());
+		request.setAttribute("nome", c.getNomeCliente());
+		request.setAttribute("numeroConta", c.getNumeroConta());
+		request.setAttribute("valorCreditado", valorCreditado);
 
-		try {
- 			RequestDispatcher dispatcher = request
-			.getRequestDispatcher("acessoliberado.jsp");
-			 dispatcher.forward(request, response);
+	
+		RequestDispatcher view = request.getRequestDispatcher("sucesso.jsp");
+		view.forward(request, response);
+	
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-
 }

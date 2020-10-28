@@ -28,7 +28,7 @@ public class Cliente {
 		return saldoCliente;
 	}
 	
-	private int getNumeroConta() {
+	public int getNumeroConta() {
 		return numeroConta;
 	}
 
@@ -62,5 +62,10 @@ public class Cliente {
 		else {
 			this.setSaldo(this.getSaldo() + valorCreditado);
 		}
+	}
+
+
+	public String getNomeCliente() {
+		return this.nomeCliente;
 	}
 }
